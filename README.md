@@ -61,13 +61,19 @@ $ docker inspect jenkins-master | grep -w IPAddress
 
 ### Create a Node on Jenkins Dashboard
 
-1. On your Jenkins dashboard, select _Manage Jenkins_ from the sidebar
-2. Under _System Configuration_ tab, open *Nodes* section
-3. To create a new *Node*, Select *+ New Node*
-4. Give your node a name, I will use `Python 3.10` and check the *Permanent Agent* tickbox
-5. Add `/home/jenkins` to *Remote Root Directory*
-6. Give the node a label which will be useful for setting up *Pipelines*. I will be using `python310`
-7. Change the usage option to *Only build jobs with label expressions matching this node*
-8. Click on **Save** to save the Node. You will be redirected to *Nodes* page.
-9. Select your newly created agent, you will see instructions for the setup on the agent side
+1. Go to **Manage Jenkins** section on the Jenkins Dashboard. From there go to the **Nodes** page.
+2. Create a **New Node**, give it a name and check the **Permanent Agent** tickbox. I will be naming it *Python 3.10*
+3. Add `/home/jenkins` to the **Remote root directory** field and give the node a label. I will be using `python310`
+4. Change the usage option to *Only build jobs with label expressions matching this node*
+5. Click on **Save** to save the Node. You will be redirected to *Nodes* page.
+
+Now we have provisoned a new node on the Jenkins server, it's time to actually create the Node.
+
+### Build a Docker image for jenkins Agent
+
+Although there are several prebuilt Docker Images for Jenkins Agents available on the Docker hub, I suggest that you build your own custom images for having a stronger hold on your runtime environments.
+
+> [!NOTE]
+> We will be using [jenkins/agent](https://hub.docker.com/r/jenkins/agent) image repository for our **Base Image**
+
 
