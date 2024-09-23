@@ -65,5 +65,5 @@ $ docker logs jenkins-ci
 
 Visit: http://localhost:8080 to access Jenkins. First you have to unlock it using the one time password mentioned in the [above step](#access-the-logs-for-one-time-password).
 
-> [!NOTE]
+> [!TIP]
 > This completes the deployment process. [Click Here](../README.md#contents) to go back to Homepage.

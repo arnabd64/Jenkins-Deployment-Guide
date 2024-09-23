@@ -26,6 +26,9 @@ services:
       - home:/var/jenkins_home
 ```
 
+> [!TIP]
+> For a more details on what is going on, checkout this [Guide](./standalone-docker.md). The compose file basically combines all the commands used that guide into a single script.
+
 ## Run the Compose
 
 ```bash
@@ -37,5 +40,8 @@ $ docker compose up -d
 ```bash
 $ docker compose logs master
 ```
+> [!IMPORTANT]
+> The One Time Password looks like `c3e77f61e3214cfdab0d557f7ac25796`
 
-This completes the deployment process. [Click Here](../README.md#contents) to go back to Homepage.
+> [!TIP]
+> This completes the deployment process. [Click Here](../README.md#contents) to go back to Homepage.
