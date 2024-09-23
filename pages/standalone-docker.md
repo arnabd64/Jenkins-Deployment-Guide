@@ -5,8 +5,11 @@ To deploy Jenkins CI server using docker, you need to run the following commands
 ## Pull the official Docker Image
 
 ```bash
-$ docker pull jenkins/jenkins:lts   # long-term support build
+$ docker pull jenkins/jenkins:lts
 ```
+
+> [!NOTE]
+> The Long-Term Support _(or `lts`)_ build of Jenkins comes with a longer update cycle with less new features and a more stable release with fewer bugs than the `lastest` build.
 
 Visit: [Jenkins | Docker Hub](https://hub.docker.com/r/jenkins/jenkins)
 
@@ -20,6 +23,8 @@ $ docker volume create jenkins-home
 
 Visit: [Docker Volumes | aws.plainenglish.io](https://aws.plainenglish.io/the-ultimate-guide-to-docker-volumes-812498a4d996)
 
+> [!IMPORTANT]
+> Remember to setup a backup plan for your Docker volumes. it only provides protection against data loss occuring  only in the container and not from the host machine.
 
 ## Virtual Network for Jenkins
 
@@ -30,6 +35,9 @@ $ docker network create --driver=bridge --subnet=172.30.0.0/24 jenkins-vnet
 ```
 
 Visit: [Docker Networking | Geeks for Geeks](https://www.geeksforgeeks.org/basics-of-docker-networking/)
+
+> [!NOTE]
+> Every container inside a docker network, can be access using their container as docker provides a DNS service.
 
 ## Run the Container
 
@@ -50,8 +58,12 @@ On it's first start up, Jenkins will ask you for a __One-Time Password__, it is 
 $ docker logs jenkins-ci
 ```
 
+> [!NOTE]
+> The OTP looks like `c3e77f61e3214cfdab0d557f7ac25796`
+
 ## Access the Dashboard
 
 Visit: http://localhost:8080 to access Jenkins. First you have to unlock it using the one time password mentioned in the [above step](#access-the-logs-for-one-time-password).
 
-This completes the deployment process. [Click Here](../README.md#contents) to go back to Homepage.
+> [!NOTE]
+> This completes the deployment process. [Click Here](../README.md#contents) to go back to Homepage.
