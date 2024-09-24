@@ -12,3 +12,6 @@ A Jenkins Agent is a separate entity which is detached from the __master node__,
 2. [Getting started with Jenkins: Agents](https://benmatselby.dev/post/jenkins-basic-agent/)
 3. [Jenkins Agents: Distributed Builds Explained](https://reintech.io/blog/jenkins-agents-distributed-builds-guide)
 4. [Difference Between Jenkins Agent And Node | Geeks for Geeks](https://www.geeksforgeeks.org/difference-between-jenkins-agent-and-node/)
+
+> [!TIP]
+> This completes the deployment process. [Click Here](../README.md#contents) to go back to Homepage.

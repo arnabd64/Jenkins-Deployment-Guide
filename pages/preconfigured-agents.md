@@ -27,7 +27,7 @@ Before proceeding, lets look at how to attach a pre-configured agent from Docker
 10. Click on the newly created node to get the following command: `java -jar agent.jar -url http://localhost:8080/ -secret e71a8f85dcbaab621d0ea0dc647b60b7c496b441fd97c88d12cfa9a4f42049c4 -name python3 -workDir "/home/jenkins/agent"`. Note down the parameter values for `secret` and `name`.
 
 > [!CAUTION]
-> The __secret__ parameter is unique to every agent created on the Jenkins master node. So it is advised to be carefully when launching multiple agents.
+> It is advised to handle the values of `secret` and `name` parameters carefully as they are unique to each agent created on the Jenkins master server.
 
 ## Quick Follow up
 
@@ -47,10 +47,10 @@ $ docker pull jenkins/jnlp-agent-python3
 $ docker run -d --rm --init \
 --name=python3 --network=jenkins-vnet \
 jenkins/jnlp-agent-python3 \
- -url=http://jenkins-master:8080 \
- -workDir=/home/jenkins/agent \
- -secret=e71a8f85dcbaab621d0ea0dc647b60b7c496b441fd97c88d12cfa9a4f42049c4 \
- -name=python3
+-url=http://jenkins-master:8080 \
+-workDir=/home/jenkins/agent \
+-secret=e71a8f85dcbaab621d0ea0dc647b60b7c496b441fd97c88d12cfa9a4f42049c4 \
+-name=python3
 ```
 
 3. Refresh the _Nodes_ page, you should see system metrics for the agent if the launch was successful, otherwise run `docker logs python3` to check the logs.
