@@ -2,6 +2,9 @@
 
 To deploy Jenkins CI server using docker, you need to run the following commands.
 
+> [!TIP]
+> I recommend using this method of deployment over other methods because it gives a lot of flexibility when working with different Jenkins agents.
+
 ## Pull the official Docker Image
 
 ```bash
@@ -37,12 +40,12 @@ $ docker network create --driver=bridge --subnet=172.30.0.0/24 jenkins-vnet
 Visit: [Docker Networking | Geeks for Geeks](https://www.geeksforgeeks.org/basics-of-docker-networking/)
 
 > [!NOTE]
-> Every container inside a docker network, can be access using their container as docker provides a DNS service.
+> Every container inside a docker network, can be accessed using their container name. This is made possible as docker provides a DNS service for every bridge network.
 
 ## Run the Container
 
 ```bash
-docker run -itd --rm --name=jenkins-ci \
+docker run -itd --rm --name=jenkins-master \
   --network=jenkins-vnet \
   -p 8080:8080/tcp \
   -p 50000:50000 \
@@ -55,7 +58,7 @@ docker run -itd --rm --name=jenkins-ci \
 On it's first start up, Jenkins will ask you for a __One-Time Password__, it is needed to unlock the Jenkins admin creation page.
 
 ```
-$ docker logs jenkins-ci
+$ docker logs jenkins-master
 ```
 
 > [!NOTE]
