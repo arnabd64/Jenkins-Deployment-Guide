@@ -44,13 +44,7 @@ $ docker pull jenkins/jnlp-agent-python3
 ```
 2. Run the following docker command:
 ```bash
-$ docker run -d --rm --init \
---name=python3 --network=jenkins-vnet \
-jenkins/jnlp-agent-python3 \
--url=http://jenkins-master:8080 \
--workDir=/home/jenkins/agent \
--secret=e71a8f85dcbaab621d0ea0dc647b60b7c496b441fd97c88d12cfa9a4f42049c4 \
--name=python3
+docker run -d --rm --init --name=python3 --network=jenkins-vnet jenkins/jnlp-agent-python3 -url=http://jenkins-master:8080 -workDir=/home/jenkins/agent -secret=e71a8f85dcbaab621d0ea0dc647b60b7c496b441fd97c88d12cfa9a4f42049c4 -name=python3
 ```
 
 3. Refresh the _Nodes_ page, you should see system metrics for the agent if the launch was successful, otherwise run `docker logs python3` to check the logs.
