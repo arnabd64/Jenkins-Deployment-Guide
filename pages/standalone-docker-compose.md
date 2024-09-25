@@ -32,13 +32,13 @@ services:
 ## Run the Compose
 
 ```bash
-$ docker compose up -d
+docker compose up -d
 ```
 
 ## Access the One Time Password
 
 ```bash
-$ docker compose logs master
+docker compose logs master
 ```
 > [!IMPORTANT]
 > The One Time Password looks like `c3e77f61e3214cfdab0d557f7ac25796`
